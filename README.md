@@ -51,3 +51,27 @@ Transaction Fees: Consider implementing a system for handling transaction fees (
 Web3 Integration: Your frontend should interact with the smart contract using the Web3.js library or similar tools to trigger the minting process and display the created NFTs.
 
 Remember that creating a full application like this involves multiple components, including frontend development, backend development, smart contract deployment, and integration with external services. Also, blockchain development and deployment come with costs and complexities, such as gas fees and the need for a testnet environment for development and testing.
+
+# Challenges
+
+Data Size and Gas Costs: Smart contracts on blockchains have limited storage capacity and processing power. Images are typically large files, and storing such data directly on the blockchain would incur extremely high gas costs due to the computation required to process and store large amounts of data on-chain.
+
+Block Size and Validation: Blockchains have a maximum block size, and every node in the network needs to validate and store every piece of data on the blockchain. Storing large image files for each NFT would lead to bloated blockchain sizes, making it difficult for nodes to keep up with the network and leading to centralization.
+
+Decentralization and Consensus: Blockchain networks rely on consensus mechanisms that require all participants to agree on the validity of transactions. Storing images directly on-chain would make it challenging to achieve consensus due to the computational and storage requirements.
+
+IPFS and Decentralized Storage: To address these challenges, many NFT platforms use decentralized storage solutions like the InterPlanetary File System (IPFS). IPFS allows files to be stored across multiple nodes, reducing the burden on the blockchain while still ensuring accessibility and decentralization.
+
+Given these limitations, the typical approach to creating NFTs involves using external services and a combination of on-chain and off-chain data:
+
+Off-Chain Image Storage: The actual image data is stored off-chain, either on centralized servers or decentralized storage networks like IPFS. The image is assigned a unique URI (Uniform Resource Identifier), which serves as a reference to the location of the image data.
+
+Metadata: The NFT's metadata, including the image URI, can be stored on-chain in the smart contract. This metadata is usually much smaller in size compared to the image itself.
+
+Minting Process: When a user wants to mint an NFT, they provide the necessary metadata to the smart contract. The smart contract creates a new token with the metadata, including the image URI, and assigns ownership to the user.
+
+External Services: To facilitate the minting process, users interact with a frontend application that communicates with the blockchain through Web3 libraries. The application can upload the image to off-chain storage and trigger the minting process by interacting with the smart contract.
+
+Transaction Fees: Users will still need to pay transaction fees (gas fees in Ethereum) for interacting with the blockchain, as each interaction requires computational resources.
+
+In summary, the limitations of blockchain technology, combined with the size of image files and the need for efficient data storage and validation, necessitate the use of external services and decentralized storage solutions when creating NFTs based on images.
