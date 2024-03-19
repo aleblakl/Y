@@ -1,4 +1,4 @@
-# Y
+# Y - test app
 
 # Y is a mobile phone app I am creating which will allow users to convert images into NFTs and display them in a public online gallery.
 
